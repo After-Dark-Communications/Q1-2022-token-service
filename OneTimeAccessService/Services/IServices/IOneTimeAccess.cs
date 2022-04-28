@@ -1,6 +1,4 @@
-﻿using OneTimeAccessService.Models;
-
-namespace OneTimeAccessService.IServices
+﻿namespace OneTimeAccessService.IServices
 {
     public interface IOneTimeAccess
     {
@@ -8,6 +6,6 @@ namespace OneTimeAccessService.IServices
 
         public string GetNewOneTimeAccessToken(object seed);
 
-        public bool VerifyOneTimeAccessToken(OneTimeAccessToken token);
+        public bool VerifyOneTimeAccessToken(string token);
     }
 }

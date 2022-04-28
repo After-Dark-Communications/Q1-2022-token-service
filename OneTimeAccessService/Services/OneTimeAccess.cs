@@ -1,5 +1,4 @@
 ﻿using OneTimeAccessService.IServices;
-using OneTimeAccessService.Models;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -31,7 +30,7 @@ namespace OneTimeAccessService.Services
             return oneTimeAccessToken;
         }
 
-        public bool VerifyOneTimeAccessToken(OneTimeAccessToken token)
+        public bool VerifyOneTimeAccessToken(string token)
         {
             //Get token from database
             //return success result
