@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies # Get used packages
-      run: dotnet restore "./OneTimeAccessService/OneTimeAccessService/OneTimeAccessService.csproj"
+      run: dotnet restore "./OneTimeAccessService/OneTimeAccessService.csproj"
     - name: Build # Build main project
-      run: dotnet build --no-restore  "./OneTimeAccessService/OneTimeAccessService/OneTimeAccessService.csproj"
+      run: dotnet build --no-restore  "./OneTimeAccessService/OneTimeAccessService.csproj"
     #- name: Test # Run tests
       #run: dotnet test --no-build --verbosity normal ./test/test.csproj
