@@ -21,6 +21,8 @@ namespace OneTimeAccessService.Controllers
             }
         }
 
+        [Route("Verify")]
+        [HttpPost]
         public IActionResult VerifyOneTimeAccessToken()
         {
             try

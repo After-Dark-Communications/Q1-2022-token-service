@@ -1,6 +1,11 @@
 using OneTimeAccessService.IServices;
+using OneTimeAccessService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+SetupServices(builder);
+
+SetupApp(builder);
 
 
 void SetupServices(WebApplicationBuilder builder)
@@ -36,5 +41,5 @@ static void SetupApp(WebApplicationBuilder builder)
 
 static void AddTransient(WebApplicationBuilder builder)
 {
-    builder.Services.AddTransient<IOneTimeAccess, IOneTimeAccess>();
+    builder.Services.AddTransient<IOneTimeAccess, OneTimeAccess>();
 }
