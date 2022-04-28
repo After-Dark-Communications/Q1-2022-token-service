@@ -10,7 +10,7 @@ WORKDIR /src
 COPY ["OneTimeAccessService.csproj", "."]
 RUN dotnet restore "./OneTimeAccessService.csproj"
 COPY . .
-WORKDIR "/src/OneTimeAccessService"
+WORKDIR "/src/."
 RUN dotnet build "OneTimeAccessService.csproj" -c Release -o /app/build
 
 FROM build AS publish
