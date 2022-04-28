@@ -8,6 +8,6 @@ namespace OneTimeAccessService.IServices
 
         public string GetNewOneTimeAccessToken(object seed);
 
-        public void VerifyOneTimeAccessToken(OneTimeAccessToken token);
+        public bool VerifyOneTimeAccessToken(OneTimeAccessToken token);
     }
 }
