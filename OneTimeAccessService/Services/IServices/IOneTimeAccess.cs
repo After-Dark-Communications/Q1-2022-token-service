@@ -4,9 +4,9 @@ namespace OneTimeAccessService.IServices
 {
     public interface IOneTimeAccess
     {
-        public void GetNewOneTimeAccessToken();
+        public string GetNewOneTimeAccessToken();
 
-        public void GetNewOneTimeAccessToken(object seed);
+        public string GetNewOneTimeAccessToken(object seed);
 
         public void VerifyOneTimeAccessToken(OneTimeAccessToken token);
     }
