@@ -1,12 +1,14 @@
-﻿using OneTimeAccessService.IServices;
+﻿using OneTimeAccess.IServices;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace OneTimeAccessService.Services
+namespace OneTimeAccess.Services
 {
 
-    public class OneTimeAccess : IOneTimeAccess
+    public class OneTimeAccessService : IOneTimeAccessService
     {
+        private static List<string> Tokens = new List<string>();
+
         public string GetNewOneTimeAccessToken()
         {
             return GetNewOneTimeAccessToken(null);
@@ -26,6 +28,9 @@ namespace OneTimeAccessService.Services
             }
 
             //Save oneTimeAccessToken to database
+            Tokens.Add(oneTimeAccessToken);
+
+            Console.WriteLine(oneTimeAccessToken);
 
             return oneTimeAccessToken;
         }
@@ -34,8 +39,12 @@ namespace OneTimeAccessService.Services
         {
             //Get token from database
             //return success result
+            foreach (string item in Tokens)
+            {
+                Console.WriteLine(item);
+            }
 
-            throw new NotImplementedException();
+            return Tokens.Contains(token);
         }
 
         private string BuildSeed()

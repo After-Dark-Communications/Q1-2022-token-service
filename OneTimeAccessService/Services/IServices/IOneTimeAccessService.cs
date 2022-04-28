@@ -1,6 +1,6 @@
-﻿namespace OneTimeAccessService.IServices
+﻿namespace OneTimeAccess.IServices
 {
-    public interface IOneTimeAccess
+    public interface IOneTimeAccessService
     {
         public string GetNewOneTimeAccessToken();
 
