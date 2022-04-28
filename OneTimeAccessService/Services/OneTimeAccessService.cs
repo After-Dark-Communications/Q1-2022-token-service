@@ -30,21 +30,24 @@ namespace OneTimeAccess.Services
             //Save oneTimeAccessToken to database
             Tokens.Add(oneTimeAccessToken);
 
-            Console.WriteLine(oneTimeAccessToken);
-
             return oneTimeAccessToken;
         }
 
         public bool VerifyOneTimeAccessToken(string token)
         {
             //Get token from database
-            //return success result
-            foreach (string item in Tokens)
+            //Cash result
+            //Delete token if found
+            //return result
+
+            bool result = Tokens.Contains(token);
+
+            if (result)
             {
-                Console.WriteLine(item);
+                Tokens.Remove(token);
             }
 
-            return Tokens.Contains(token);
+            return result;
         }
 
         private string BuildSeed()
