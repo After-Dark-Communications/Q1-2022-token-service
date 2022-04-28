@@ -1,4 +1,6 @@
-﻿using OneTimeAccess.IServices;
+﻿using OneTimeAccess.Database;
+using OneTimeAccess.IServices;
+using OneTimeAccess.Models;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -7,7 +9,8 @@ namespace OneTimeAccess.Services
 
     public class OneTimeAccessService : IOneTimeAccessService
     {
-        private static List<string> Tokens = new List<string>();
+        //private static List<string> Tokens = new List<string>();
+        DatabaseCommunication db = new DatabaseCommunication(); 
 
         public string GetNewOneTimeAccessToken()
         {
@@ -28,7 +31,7 @@ namespace OneTimeAccess.Services
             }
 
             //Save oneTimeAccessToken to database
-            Tokens.Add(oneTimeAccessToken);
+            db.AddToken(new OneTimeAccessToken { TokenContent = oneTimeAccessToken});
 
             return oneTimeAccessToken;
         }
@@ -40,11 +43,11 @@ namespace OneTimeAccess.Services
             //Delete token if found
             //return result
 
-            bool result = Tokens.Contains(token);
+            bool result = (db.ReadToken(token) != null);
 
             if (result)
             {
-                Tokens.Remove(token);
+                db.RemoveToken(token);
             }
 
             return result;
