@@ -27,7 +27,12 @@ static void SetupApp(WebApplicationBuilder builder)
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
-        app.UseSwaggerUI();
+        app.UseSwaggerUI(c =>
+        {
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "OneTimeAccess V1");
+        }
+        
+        );
     }
 
     app.UseHttpsRedirection();

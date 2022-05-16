@@ -5,7 +5,7 @@ using OneTimeAccess.Services;
 namespace OneTimeAccess.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class OneTimeAccessController : Controller
     {
         private readonly IOneTimeAccessService _oneTimeAccessService;
@@ -15,8 +15,7 @@ namespace OneTimeAccess.Controllers
             _oneTimeAccessService = oneTimeAccessService;
         }
 
-        [Route("GetNew")]
-        [HttpGet]
+        [HttpGet("GetNew")]
         public IActionResult GetOneTimeAccessToken()
         {
             try
@@ -31,8 +30,7 @@ namespace OneTimeAccess.Controllers
             }
         }
 
-        [Route("Verify")]
-        [HttpPost]
+        [HttpPost("Verify")]
         public IActionResult VerifyOneTimeAccessToken(string token)
         {
             try
