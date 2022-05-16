@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["OneTimeAccessService.csproj", "."]
-RUN dotnet restore "./OneTimeAccessService.csproj"
+COPY ["OneTimeAccess.csproj", "."]
+RUN dotnet restore "./OneTimeAccess.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "OneTimeAccessService.csproj" -c Release -o /app/build
+RUN dotnet build "OneTimeAccess.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "OneTimeAccessService.csproj" -c Release -o /app/publish
+RUN dotnet publish "OneTimeAccess.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "OneTimeAccessService.dll"]
+ENTRYPOINT ["dotnet", "OneTimeAccess.dll"]
