@@ -1,25 +1,45 @@
+using OneTimeAccess.IServices;
+using OneTimeAccess.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+SetupServices(builder);
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+SetupApp(builder);
 
-var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+void SetupServices(WebApplicationBuilder builder)
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    // Add services to the container.
+    builder.Services.AddControllers();
+    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+
+    AddTransient(builder);
 }
 
-app.UseHttpsRedirection();
+static void SetupApp(WebApplicationBuilder builder)
+{
+    var app = builder.Build();
 
-app.UseAuthorization();
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
 
-app.MapControllers();
+    app.UseHttpsRedirection();
 
-app.Run();
+    app.UseAuthorization();
+
+    app.MapControllers();
+
+    app.Run();
+}
+
+static void AddTransient(WebApplicationBuilder builder)
+{
+    builder.Services.AddTransient<IOneTimeAccessService, OneTimeAccessService>();
+}

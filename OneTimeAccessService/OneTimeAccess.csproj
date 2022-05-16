@@ -6,9 +6,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>46a8fb00-2f36-4c64-af32-5ec0f3213f58</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
