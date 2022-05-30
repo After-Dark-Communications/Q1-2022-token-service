@@ -20,4 +20,20 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Libs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="TokenParser">
+      <HintPath>Libs\TokenParser.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Libs\TokenParser.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
