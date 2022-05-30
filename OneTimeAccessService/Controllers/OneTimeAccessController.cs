@@ -15,6 +15,12 @@ namespace OneTimeAccess.Controllers
             _oneTimeAccessService = oneTimeAccessService;
         }
 
+        [HttpGet("")]
+        public IActionResult MainAPI()
+        {
+            return Ok();
+        }
+
         [HttpGet("GetNew")]
         public IActionResult GetOneTimeAccessToken()
         {
