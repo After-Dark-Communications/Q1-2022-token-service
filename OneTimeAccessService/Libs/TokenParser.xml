@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TokenParser</name>
+    </assembly>
+    <members>
+        <member name="T:TokenParser.Serializer">
+            <summary>
+            Used to CRUD tokens
+            </summary>
+        </member>
+        <member name="M:TokenParser.Serializer.EnsureFileExists">
+            <summary>Ensures that the token file exists</summary>
+        </member>
+        <member name="M:TokenParser.Serializer.ReadToken(System.String)">
+            <summary>Searches for given token and returns it if it is found.</summary>
+            <param name="token">token to look for</param>
+        </member>
+        <member name="M:TokenParser.Serializer.WriteToken(System.String,System.Boolean)">
+            <summary>Writes the token to the file.</summary>
+            <param name="token">token to write</param>
+            <param name="checkExisting">should it be checked if the token already exists</param>
+        </member>
+        <member name="M:TokenParser.Serializer.DeleteToken(System.String)">
+            <summary>Deletes the given token from the file</summary>
+            <param name="token">token to delete</param>
+        </member>
+    </members>
+</doc>
