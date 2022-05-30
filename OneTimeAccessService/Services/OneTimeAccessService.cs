@@ -43,7 +43,7 @@ namespace OneTimeAccess.Services
             //Delete token if found
             //return result
 
-            bool result = (db.ReadToken(token) != null);
+            bool result = (!db.ReadToken(token).Equals(string.Empty));
 
             if (result)
             {
