@@ -1,5 +1,6 @@
 using OneTimeAccess.IServices;
 using OneTimeAccess.Services;
+using TokenParser;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +41,8 @@ static void SetupApp(WebApplicationBuilder builder)
     app.UseAuthorization();
 
     app.MapControllers();
+
+    Serializer.EnsureFileExists();
 
     app.Run();
 }
